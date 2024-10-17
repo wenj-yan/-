@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Apr 13 17:52:17 2024
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
+Revision Name : Ethernet
+Top-level Entity Name : Ethernet
+Family : Cyclone IV E
+Device : EP4CE10F17C8
+Timing Models : Final
+Total logic elements : 1,718 / 10,320 ( 17 % )
+    Total combinational functions : 1,262 / 10,320 ( 12 % )
+    Dedicated logic registers : 1,105 / 10,320 ( 11 % )
+Total registers : 1105
+Total pins : 28 / 180 ( 16 % )
+Total virtual pins : 0
+Total memory bits : 23,552 / 423,936 ( 6 % )
+Embedded Multiplier 9-bit elements : 8 / 46 ( 17 % )
+Total PLLs : 0 / 2 ( 0 % )

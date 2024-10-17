@@ -1,0 +1,5 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,nco_ip_st:inst|asj_nco_mady_cen:m0|altmult_add:ALTMULT_ADD_component|mult_add_bvm2:auto_generated|ded_mult_1k51:ded_mult2|mac_out9,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,nco_ip_st:inst|asj_nco_mady_cen:m0|altmult_add:ALTMULT_ADD_component|mult_add_bvm2:auto_generated|ded_mult_1k51:ded_mult1|mac_out9,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,nco_ip_st:inst|asj_nco_madx_cen:m1|altmult_add:ALTMULT_ADD_component|mult_add_c0n2:auto_generated|ded_mult_1k51:ded_mult2|mac_out9,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,nco_ip_st:inst|asj_nco_madx_cen:m1|altmult_add:ALTMULT_ADD_component|mult_add_c0n2:auto_generated|ded_mult_1k51:ded_mult1|mac_out9,
