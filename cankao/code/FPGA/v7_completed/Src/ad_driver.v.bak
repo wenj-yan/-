@@ -1,0 +1,145 @@
+module ad_driver(
+    input DATA,
+    input reset_n, 
+    input fpga_gclk,
+    input SCKI,
+    output LRCK,
+    output BCK,
+    output LRCK_double,
+    output OSR0,	 
+    output OSR1,	 
+    output OSR2,
+    output FMT0,
+    output FMT1,
+    output SM,
+    output BYPAS,
+    output RST_n,
+    output reg [31:0] data_parellel,
+    output LRCK_detcet,
+    output pos_edge,
+    output neg_edge
+);
+
+/************************************模式设定，对芯片部分引脚的置位*******************************************/
+assign OSR0 = 1'b1;// Dual rate
+assign OSR1 = 1'b0;
+assign OSR2 = 1'b0;
+assign BYPAS = 1'b0;// 启用HPF
+assign FMT0 = 1'b0;
+assign FMT1 = 1'b1;// 数据格式为标准模式
+assign SM = 1'b1;// 设置为从模式
+reg [8:0] cnt_reset;
+reg RST_n_reg;
+// 复位信号持续260个SCKI(需要大于65536*1/fs的时间)
+always @(posedge SCKI or negedge reset_n) begin
+	if (~reset_n) begin
+		cnt_reset <= 0;
+		RST_n_reg <= 0;
+	end
+	else if (cnt_reset == 9'd259) begin
+		RST_n_reg <= 1;
+	end
+	else
+		begin
+			RST_n_reg <= 0;
+			cnt_reset <= cnt_reset + 1'b1;
+		end
+end
+// assign RST_n = RST_n_reg;
+assign RST_n = 1'b1;
+/********************************************************************************************************/
+
+
+/*************************分频***********************************/
+reg [6:0] cnt_div256;
+reg [5:0] cnt_div128;
+reg  cnt_div4;
+reg LRCK_reg;
+reg BCK_reg;
+reg LRCK_double_reg;
+always @(posedge SCKI or negedge reset_n) begin
+	if (~reset_n) begin
+		cnt_div256 <= 1'b0;
+		LRCK_reg <= 1'b1;
+	end
+	else if (cnt_div256 == 7'd127) begin
+		LRCK_reg <= ~LRCK_reg;
+        cnt_div256 <= 1'b0;
+	end
+	else begin
+            LRCK_reg <= LRCK_reg;
+            cnt_div256 <= cnt_div256 + 1'b1;
+    end	
+end
+
+always @(posedge SCKI or negedge reset_n) begin
+	if (~reset_n) begin
+		cnt_div128 <= 1'b0;
+		LRCK_double_reg <= 1'b1;
+	end
+	else if (cnt_div128 == 6'd63) begin
+		LRCK_double_reg <= ~LRCK_double_reg;
+        cnt_div128 <= 1'b0;
+	end
+	else begin
+            LRCK_double_reg <= LRCK_double_reg;
+            cnt_div128 <= cnt_div128 + 1'b1;	
+    end
+end
+
+always @(posedge SCKI or negedge reset_n) begin
+	if (~reset_n) begin
+		cnt_div4 <= 1'b0;
+		BCK_reg <= 1'b0;
+	end
+	else if (cnt_div4 == 1'b1) begin
+		BCK_reg <= ~BCK_reg;
+        cnt_div4 <= 1'b0;
+	end
+	else begin
+        BCK_reg <= BCK_reg;
+        cnt_div4 <= cnt_div4 + 1'b1;
+    end				
+end
+
+
+assign LRCK = LRCK_reg;
+assign BCK = BCK_reg;
+assign LRCK_double = LRCK_double_reg;
+/********************************************************************/
+
+
+/*************串并转换，并对采集到的24位数据进行符号扩展后得到的32位数据****************/
+reg [23:0] data_parellel_reg;
+always @(posedge BCK or negedge reset_n) begin
+	if (~reset_n) begin
+		data_parellel_reg <= 0;
+	end
+	else
+		data_parellel_reg <= {data_parellel_reg[22:0],DATA};// 注意是LSB还是MSB(见数据手册)
+end
+
+/*****************************************************************************/
+always @(posedge fpga_gclk)
+begin
+	if (pos_edge)
+		data_parellel <= {{8{data_parellel_reg[23]}}, data_parellel_reg};// 符号扩展
+end 
+
+/*************************边沿检测***********************************/
+reg LRCK_detcet_reg;
+always @(posedge fpga_gclk or negedge reset_n) begin
+    if (~reset_n) begin
+        LRCK_detcet_reg <= 0;
+    end
+    else begin
+       LRCK_detcet_reg <= LRCK;
+    end
+end
+assign LRCK_detcet = LRCK_detcet_reg ^ LRCK;
+assign  pos_edge = ~LRCK_detcet_reg & LRCK;
+assign  neg_edge = LRCK_detcet_reg & ~LRCK;
+/********************************************************************/
+
+
+endmodule

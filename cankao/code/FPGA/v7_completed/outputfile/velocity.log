@@ -1,0 +1,41 @@
+Thu Dec 28 14:29:22 CST 2023  [debug] AvalonLogSystem initialized using logfile 'velocity.log'
+Thu Dec 28 14:29:22 CST 2023   [info] ************************************************************** 
+Thu Dec 28 14:29:22 CST 2023   [info] Starting Jakarta Velocity v1.4
+Thu Dec 28 14:29:22 CST 2023   [info] RuntimeInstance initializing.
+Thu Dec 28 14:29:22 CST 2023   [info] Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+Thu Dec 28 14:29:22 CST 2023   [info] Trying to use logger class org.apache.velocity.runtime.log.AvalonLogSystem
+Thu Dec 28 14:29:22 CST 2023   [info] Using logger class org.apache.velocity.runtime.log.AvalonLogSystem
+Thu Dec 28 14:29:22 CST 2023   [info] Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+Thu Dec 28 14:29:22 CST 2023   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Thu Dec 28 14:29:22 CST 2023   [info] FileResourceLoader : initialization starting.
+Thu Dec 28 14:29:22 CST 2023   [info] FileResourceLoader : adding path 'e:/shu/quartus_ii/13_0/ip/altera/nco/lib/\template'
+Thu Dec 28 14:29:22 CST 2023   [info] FileResourceLoader : adding path '.'
+Thu Dec 28 14:29:22 CST 2023   [info] FileResourceLoader : initialization complete.
+Thu Dec 28 14:29:22 CST 2023   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.JarResourceLoader
+Thu Dec 28 14:29:22 CST 2023   [info] JarResourceLoader : initialization starting.
+Thu Dec 28 14:29:22 CST 2023   [info] JarResourceLoader # of paths : 0
+Thu Dec 28 14:29:22 CST 2023   [info] JarResourceLoader : initialization complete.
+Thu Dec 28 14:29:22 CST 2023   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Thu Dec 28 14:29:22 CST 2023   [info] ClasspathResourceLoader : initialization starting.
+Thu Dec 28 14:29:22 CST 2023   [info] ClasspathResourceLoader : initialization complete.
+Thu Dec 28 14:29:22 CST 2023   [info] ResourceCache : initialized. (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+Thu Dec 28 14:29:22 CST 2023   [info] Default ResourceManager initialization complete.
+Thu Dec 28 14:29:22 CST 2023   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+Thu Dec 28 14:29:22 CST 2023   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+Thu Dec 28 14:29:22 CST 2023   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+Thu Dec 28 14:29:22 CST 2023   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Include
+Thu Dec 28 14:29:22 CST 2023   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+Thu Dec 28 14:29:22 CST 2023   [info] Created: 20 parsers.
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : initialization starting.
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : adding VMs from VM library template : VM_global_library.vm
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : added new VM : #listall( list ) : source = VM_global_library.vm
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : added new VM : #listlist( list ) : source = VM_global_library.vm
+Thu Dec 28 14:29:22 CST 2023   [info] ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro :  VM library template macro registration complete.
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : allowInline = true : VMs can be defined inline in templates
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : allowInlineLocal = false : VMs defined inline will be  global in scope if allowed.
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : messages on  : VM system will output logging messages
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : autoload off  : VM system will not automatically reload global library macros
+Thu Dec 28 14:29:22 CST 2023   [info] Velocimacro : initialization complete.
+Thu Dec 28 14:29:22 CST 2023   [info] Velocity successfully started.

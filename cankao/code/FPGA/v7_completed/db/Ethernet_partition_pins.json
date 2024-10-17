@@ -1,0 +1,85 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "e_txen",
+					"strict" : false
+				},
+				{
+					"name" : "e_txer",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[4]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[5]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[6]",
+					"strict" : false
+				},
+				{
+					"name" : "e_txd[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LRCK",
+					"strict" : false
+				},
+				{
+					"name" : "BCK",
+					"strict" : false
+				},
+				{
+					"name" : "fpga_gclk",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "DATA",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
